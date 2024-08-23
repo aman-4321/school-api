@@ -95,6 +95,9 @@ app.get("/listSchools", async (req, res) => {
 });
 
 const PORT = process.env.PORT || 10000;
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+server.keepAliveTimeout = 120000;
+server.headersTimeout = 120000;
