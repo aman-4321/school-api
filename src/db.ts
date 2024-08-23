@@ -13,6 +13,7 @@ async function initializeDB() {
       database: process.env.DB_NAME,
       port: 18425,
       uri: process.env.URI,
+      connectTimeout: 60000,
     });
 
     console.log("Connected to MySQL");

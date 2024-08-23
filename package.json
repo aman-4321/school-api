@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc -b && node dist/index.js"
+    "seed": "tsc -b && node dist/db.js",
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
