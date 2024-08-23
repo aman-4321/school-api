@@ -4,11 +4,10 @@ import mysql from "mysql2/promise";
 import dotenv from "dotenv";
 import * as turf from "@turf/turf";
 import * as fs from "fs";
-import path from "path";
 
 dotenv.config();
 
-const caCertPath = path.resolve(__dirname, "../ca.pem");
+const caCertPath = "/etc/secrets/ca.pem";
 
 const app = express();
 app.use(express.json());
