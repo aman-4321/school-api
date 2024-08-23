@@ -3,8 +3,12 @@ import cors from "cors";
 import mysql from "mysql2/promise";
 import dotenv from "dotenv";
 import * as turf from "@turf/turf";
+import * as fs from "fs";
+import path from "path";
 
 dotenv.config();
+
+const caCertPath = path.resolve(__dirname, "../ca.pem");
 
 const app = express();
 app.use(express.json());
@@ -15,6 +19,10 @@ const pool = mysql.createPool({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
+  ssl: {
+    ca: fs.readFileSync(caCertPath),
+  },
+  port: 18425,
 });
 
 const isValidLatitude = (lat: number): boolean => lat >= -90 && lat <= 90;
