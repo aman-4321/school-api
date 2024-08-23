@@ -12,7 +12,7 @@ async function initializeDB() {
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
       port: 18425,
-      uri: process.env.URI,
+      // uri: process.env.URI,
       connectTimeout: 60000,
     });
 
